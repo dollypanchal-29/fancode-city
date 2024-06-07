@@ -113,18 +113,18 @@
           <encoding>UTF-8</encoding>
         </configuration>
       </plugin>
-
-      <!-- Allows the example to be run via 'mvn camel:run' -->
       <plugin>
-        <groupId>org.apache.camel</groupId>
-        <artifactId>camel-maven-plugin</artifactId>
-        <version>4.6.0</version>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>2.18.1</version>
         <configuration>
-          <logClasspath>true</logClasspath>
-          <mainClass>com.fancode.city.MainApp</mainClass>
+          <suiteXmlFiles>
+            <suiteXmlFile>
+              src/main/resources/testNG/runTest.xml
+            </suiteXmlFile>
+          </suiteXmlFiles>
         </configuration>
       </plugin>
-
     </plugins>
   </build>
 
