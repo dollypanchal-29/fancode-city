@@ -16,7 +16,7 @@ public class FancodeValidators {
         this.facadeProvider = facadeProvider;
     }
 
-    public void validateUsersTaskCompletion() {
+    public void validateUsersTaskCompletion(long taskCompletionThreshold) {
         var fancodeCityUserList = facadeProvider.getFancodeFacade().getUserList();
         var toDoTaskList = facadeProvider.getFancodeFacade().getToDoTasks();
 
@@ -33,7 +33,7 @@ public class FancodeValidators {
             long totalTasks = userTodos.size();
             double completionPercentage = (double) completedTasks / totalTasks * 100;
 
-            Assert.assertTrue(completionPercentage > 50,
+            Assert.assertTrue(completionPercentage > taskCompletionThreshold,
                     "User " + user.id + " has completed " + completionPercentage + "% of tasks, which is not greater than 50%");
         }
     }

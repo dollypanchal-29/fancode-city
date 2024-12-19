@@ -2,6 +2,7 @@ package com.fancode.city.tests;
 
 import com.fancode.BaseTest;
 import com.fancode.city.contants.GroupConstants;
+import com.fancode.city.dataProviders.FancodeCityDP;
 import com.fancode.city.facade.fancode.FancodeFacade;
 import com.fancode.city.validators.FancodeValidators;
 import org.testng.annotations.BeforeMethod;
@@ -18,13 +19,13 @@ public class FancodeCityTests extends BaseTest {
     }
 
     @Test(description = "Check if all the users of fancode has more than 50% task completion percentage",
-    groups = {GroupConstants.COMMON.SANITY, GroupConstants.SERVICE.FANCODE})
-    public void test_fancode_citizens() {
+    groups = {GroupConstants.COMMON.SANITY, GroupConstants.SERVICE.FANCODE}, dataProviderClass = FancodeCityDP.class, dataProvider = "fancodeThresholdDP")
+    public void test_fancode_citizens(long taskCompletionThreshold) {
 
         fancodeFacade.getFancodeUsers();
 
         fancodeFacade.getToDoTasks();
 
-        fancodeValidators.validateUsersTaskCompletion();
+        fancodeValidators.validateUsersTaskCompletion(taskCompletionThreshold);
     }
 }

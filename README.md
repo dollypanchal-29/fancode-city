@@ -7,7 +7,6 @@ A rest assured API automation impl of fancode city using testNG framework
 - [Running the Tests](#running-the-tests)
 - [Project Structure](#project-structure)
 - [Technologies Used](#technologies-used)
-- [Improvements](#improvements)
 
 ## Prerequisites
 
@@ -36,14 +35,3 @@ A rest assured API automation impl of fancode city using testNG framework
   TestNG: Testing framework.
   Jackson: Library for JSON processing.
   Facade Design Pattern: Simplifies interactions with complex subsystems.
-
-## Improvements
-  Configuration Management:
-    Move URL and other configurations to YAML files for better manageability and flexibility, Also make them env independent.
-  
-  Request Executor:
-    Develop a more generic request executor that can handle various types of API requests, making the codebase more scalable and maintainable.
-
-For further details on improvements, consider exploring:
-  Jackson YAML Data Format
-  YAML Configuration in Spring Boot
